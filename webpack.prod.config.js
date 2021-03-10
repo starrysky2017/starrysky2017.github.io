@@ -72,9 +72,6 @@ const webpack_prod_config = {
         ],
         runtimeChunk: { name: 'runtime' }
     },
-    externals: {
-        'moment': 'moment',
-    },
     plugins: [
         ...happyLoaders,
         new CopyPlugin([
