@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Layout, Form, message, Input, Button, Image, Row, Col, Modal } from 'antd';
 import myapply from '../action/apply';
+import { mobileCheck } from '../../public/util/index';
 import * as styles from './App.less';
 
+const isMobile = mobileCheck();
 const responsiveProps = {
     xs: 24,
     sm: 12,
@@ -181,7 +183,7 @@ class App extends React.Component<Props, States> {
                                                     return <Row className={styles.item}>
                                                         <Col className={styles.desc} {...responsiveProps}>{i.desc}</Col>
                                                         <Col className={styles.imgWrap} {...responsiveProps}>
-                                                            <Image className={styles.img} src={i.imgUrl} />
+                                                            {isMobile ? <img className={styles.img} src={i.imgUrl} /> : <Image className={styles.img} src={i.imgUrl} preview={{ mask: false }} />}
                                                         </Col>
                                                     </Row>
                                                 })
