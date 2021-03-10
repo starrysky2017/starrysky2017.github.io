@@ -1,0 +1,109 @@
+
+
+@import './Global.less';
+@import '~antd/lib/style/themes/default.less';
+
+.App{
+    .bannerDiv {
+        background: url('../static/images/banner.jpg') center center no-repeat, linear-gradient(-180deg, rgb(255, 255, 255) 0%, rgb(236, 245, 255) 100%);
+        .banner {
+            text-align: center;
+            .bannerTitle {
+                font-size: 50px;
+                color: #fff;
+            }
+            .bannerSubTitle {
+                font-size: 25px;
+                color: #fff;
+                opacity: 0.5;
+            }
+            .bannerBtns {
+                padding-top: 20px;
+                display: flex;
+                .placeholder {
+                    width: 15px;
+                }
+            }
+        }
+    }
+    .bodyDiv {
+        width: 90%;
+        margin: 20px auto;
+        .moduleDiv {
+            .modulePanel {
+                padding: 20px 0;
+                border-bottom: 1px dashed rgba(0, 0, 0, .1);
+                .moduleTitle {
+                    text-align: center;
+                    font-size: 30px;
+                    font-weight: 500;
+                }
+                .moduleContent {
+                    padding: 20px 0;
+                    .principle {
+                        font-size: 18px;
+                    }
+                    .list {
+                        margin-top: 20px;
+                        .item {
+                            width: 100%;
+                            margin-bottom: 20px;
+                            .desc, .imgWrap {
+                                font-weight: 300;
+                            }
+                            .desc {
+                                padding-right: 20px;
+                                font-size: 18px;
+                                font-weight: 200;
+                            }
+                        }
+                        .item:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .modulePanel:last-child {
+            border-bottom: 0;
+        }
+    }
+    .footer {
+        text-align: center;
+        background-color: #f4f4f4;;
+    }
+}
+
+// Media queries breakpoints
+@media (max-width: @screen-xs) {
+    .App {
+        .bannerDiv {
+            height: 400px;
+            background-position: bottom;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+@media (min-width: @screen-xs) {
+    .App {
+        .bannerDiv {
+            height: 580px;
+            background-position: bottom;
+            background-size: 100%;
+            display: flex;
+            justify-content: center;
+            .banner {
+                padding-top: 150px;
+            }
+        }
+        .moduleContent {
+            .imgWrap {
+                .img {
+                    height: 480px;
+                }
+            }
+        }
+    }
+}
