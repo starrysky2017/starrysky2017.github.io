@@ -1,16 +1,15 @@
-import api from '../api';
+import JsonPApi from '../api/jsonp';
+import { remoteHost } from '../config';
 
 const actions = {
     submitApply: function (data) {
         return new Promise(resolve => {
-            api({
-                method: 'POST',
-                path: `/api/apply`,
-                query: { ...data }
+            JsonPApi({
+                url: `${remoteHost}/api/apply/trial`,
+                data,
+            }).then(response => {
+                resolve(response);
             })
-                .then(response => {
-                    resolve(response)
-                })
         })
     }
 }

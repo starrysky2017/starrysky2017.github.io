@@ -41,7 +41,10 @@ const ApplyForm: React.FC<ApplyFormProps> = ({
             onOk={() => {
                 form.validateFields()
                     .then(values => {
-                        const cb = () => form.resetFields();
+                        const cb = () => {
+                            form.resetFields();
+                            onCancel();
+                        };
                         onOK(values, cb);
                     })
                     .catch(info => {
@@ -58,6 +61,9 @@ const ApplyForm: React.FC<ApplyFormProps> = ({
                     </FormItem>
                     <FormItem name="name" label="姓名" rules={[{ required: true, message: '请输入您的姓名' }]}>
                         <Input placeholder="请输入您的姓名" />
+                    </FormItem>
+                    <FormItem name="telephone" label="手机号码" rules={[{ required: true, message: '请输入您的手机号码' }]}>
+                        <Input placeholder="请输入您的手机号码" />
                     </FormItem>
                     <FormItem name="email" label="邮箱地址" rules={[{ required: true, message: '请输入您的邮箱地址' }]}>
                         <Input placeholder="请输入您的邮箱地址" />
@@ -100,6 +106,7 @@ class App extends React.Component<Props, States> {
 
     handleSubmitForm = (values: any, cb: any) => {
         console.log('Received values of form: ', values);
+        values['product'] = 'incinerator';
         myapply
             .submitApply(values)
             .then(response => {

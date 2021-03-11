@@ -4,4 +4,5 @@ module.exports = {
 	isSSL: false,
 	basePath: '/api',
 	baseRoute: '/main',
+	remoteHost: 'https://license.incinerator.io:10002',
 }
